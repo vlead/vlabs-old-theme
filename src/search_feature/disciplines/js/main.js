@@ -110,7 +110,7 @@ var filterLabsByPhase = function(labs) {
       var image_name = assets[0].path;
       var path = labImagesUrl + image_name;
       // return lab_name;
-      return '<div class=" col-md-3 " id='+ lab_name + '> <div class="thumbnail" style="cursor:pointer; padding: 0px !important;"><a><div class="caption" style="min-height: 110px;"><h4 onclick="javascript:handleEventOnLab(this)"  src="' + path +'" id="' + hosted_url + '" style="text-align:center; color:#2c99ce;" >'+ lab_name +'</h4></a></div></div></div>';
+      return '<div class=" col-md-12 " id='+ lab_name + '> <div  style="margin-top: 20px; " class="lab-list-row-div" style="cursor:pointer; padding: 0px !important;"><a  href="' + hosted_url + '" ><div><p id="' + hosted_url + '"  >'+ lab_name +'</p></a></div></div></div>';
     });
   
     var displayLabs = displayList.reduce(function(acc, el) {
