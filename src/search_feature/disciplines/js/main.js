@@ -1,5 +1,6 @@
 var loadIndex = function(discId) {
   displayLabsOfDiscipline(discId);
+  displayAllDisciplines();
 };
 
 var getJSON = function(resourcePath) {
@@ -31,15 +32,7 @@ var getDisciplines = function() {
   return disciplinePromise.then(function(disciplines) {
     return disciplines;
   });
-}
-
-var institutePromise;
-var getInstitutes = function() {
-  institutePromise = institutePromise || getJSON(instResPath);
-  return institutePromise.then(function(institutes) {
-    return institutes;
-  });
-}
+};
 
 var labPromise;
 var getLabs = function() {
@@ -47,7 +40,7 @@ var getLabs = function() {
   return labPromise.then(function(labs) {
     return labs;
   });
-}
+};
 
 var filterQuery = function(ls, id) {
   return ls.filter(function(el) {
@@ -77,6 +70,44 @@ var filterLabsByKeyWord = function(labs, keyword) {
   return labs.filter(function(lab) {
     return lab['lab_name'].toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1;
   });
+};
+
+var displayAllDisciplines = function() {
+ getDisciplines()
+    .then(buildDisciplineDisplayList)
+    .then(displayDisciplinesInDiv)
+    .catch(function(err) {
+      console.log("Error from displayAllDisciplines: " + err);
+    });
+};
+
+var buildDisciplineDisplayList = function(disciplines) {
+  disciplines.sort(function(a, b) {
+    var nameA = a['discipline_name'].toUpperCase(); // ignore upper and lowercase
+    var nameB = b['discipline_name'].toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // names must be equal
+    return 0;
+  });
+
+  var displayList = disciplines.map(function(discipline) {
+    var discipline_id = discipline['discipline_name'];
+    var discipline_name = discipline['discipline_name'];                                              
+    return '<div><a href="./electronics-communications.html" class="sidebar-a"><h3 class="text-h3-darkblue" style="margin-top: 2px;">' + discipline_name + '</h3></a></div>';
+  });
+
+  var displayDisciplines = displayList.reduce(function(acc, el) {
+    acc += el;
+    return acc;
+  });
+   return '<div class="container-fluid"><div class="row">' + 
+    displayDisciplines +
+    '</div></div>';
 };
 
 var displayLabsByKeyWord = function(discId) {
@@ -130,13 +161,13 @@ var filterLabsByPhase = function(labs) {
     });
   
     var displayList = labs.map(function(lab) {
-      var lab_name = lab['lab_name'];                                                                      
+      var lab_name = lab['lab_name'];                                                                       var lab_id = lab['lab_id'];
       var hosted_url = getTheRightUrl(lab['hosting_info']);
       var assets = filterAssetsbyAssetType(lab['assets']);
       var image_name = assets[0].path;
       var path = labImagesUrl + image_name;
       // return lab_name;
-      return '<div class=" col-md-12 " id='+ lab_name + '> <div  style="margin-top: 20px; " class="lab-list-row-div" style="cursor:pointer; padding: 0px !important;"><a  href="' + hosted_url + '" ><div><p id="' + hosted_url + '"  >'+ lab_name +'</p></a></div></div></div>';
+      return '<div id='+ lab_id + '> <div style="margin-top: 20px; " class="lab-list-row-div" style="cursor:pointer; padding: 0px !important;"><a  href="' + hosted_url + '" ><div><p id="' + hosted_url + '"  >'+ lab_name +'</p></a></div></div></div>';
     });
   
     var displayLabs = displayList.reduce(function(acc, el) {
@@ -144,10 +175,14 @@ var filterLabsByPhase = function(labs) {
       return acc;
     });
     // return displayLabs;
-    return '<div class="container-fluid"><div class="row">' + 
+    return '<div>' + 
       displayLabs +
-      '</div></div>';
+      '</div>';
   };
+
+var displayDisciplinesInDiv = function(data) {
+  document.getElementById("disciplines").innerHTML = data; 
+};
 
 var displayContentInDiv = function(data) {
   document.getElementById("output").innerHTML = data;

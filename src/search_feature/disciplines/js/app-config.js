@@ -1,4 +1,5 @@
 var ldsUrl = "https://lds.vlabs.ac.in";
+var disResPath = ldsUrl + "/disciplines";
 var labImagesUrl = "https://s3-us-west-1.amazonaws.com/ld-service/images/new-lab-images/";
 var labsByDiscUrl = ldsUrl + "/labs?cached=1&consumer=lp&discipline_name=";
 //this variable can be either "openedx", "test-openedx", "cloud" or "institute"

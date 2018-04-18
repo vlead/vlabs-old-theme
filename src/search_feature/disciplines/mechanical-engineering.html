@@ -92,6 +92,23 @@
         <div class="col-md-10 lab-list-col-10">
           <img src="images/icon_4.png">
           <span class="text-normal-gray-big">Mechanical Engineering </span>
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-form navbar-left">
+                <div  class="input-group stylish-input-group">
+                  <input id="keyword" onkeyup="javascript:displayLabsByKeyWord('Mechanical Engineering')"
+                         type="text" class="form-control"
+                         placeholder="Lab Name">
+                  <span class="input-group-addon">
+                    <button type="button" id="search"
+                       onclick="javascript:displayLabsByKeyWord('Mechanical Engineering')"
+                       target="content_iframe" class="btn btn-default disabled" type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </ul>
+
           <br>
           <p class="text-normal-gray-smallest">
           </p>
