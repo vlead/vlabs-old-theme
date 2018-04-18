@@ -10,4 +10,4 @@ var secondChoiceUrl = "institute";
 var phaseLength = 1;
 var phaseId = 2;
 var hostedBaseForOpenEdx = "https://openedx.vlabs.ac.in";
-
+var labResPath = ldsUrl + "/labs?cached=1&consumer=lp";

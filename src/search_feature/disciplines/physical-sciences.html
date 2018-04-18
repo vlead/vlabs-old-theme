@@ -49,8 +49,16 @@
     <header>
     </header>
     <!==================================Disciplines sidebar starts from here===============================>
-        <div class="container-fluid" style="margin-left: 35px; margin-right: 35px; padding-top:102px;">
-            <h2 class="text-h2-lightblue" style=" margin-bottom: 20px; margin-top: 30px; ">Disciplines and Domains</h2>
+        <div class="container-fluid" style="margin-left:
+                                            35px;
+                                            margin-right:
+                                            35px;
+                                            padding-top:102px;">
+
+          <div class="row">
+            <h2 class="text-h2-lightblue" style="
+            margin-bottom: 20px; margin-top: 30px;
+            ">Disciplines and Domains</h2>                          </div>
             <div class="row">
 	      <div class="col-md-2 sidebar-col-2">
 		<a href="./electronics-communications.html" class="sidebar-a">
@@ -75,7 +83,10 @@
 		  <h3 class="text-h3-darkblue" style="margin-top: 2px; "> Civil Engineering</h3>
 		</a>
 		<a href="./physical-sciences.html" class="sidebar-a">
-		  <h3 class="text-h3-darkblue" style="margin-top: 2px; color: #ff6600;"> Physical Sciences</h3>
+		  <h3 class="text-h3-darkblue"
+		  style="margin-top: 2px; color: #ff6600;">
+		    Physical Sciences</h3>
+                  
 		</a>
 		<a href="./chemical-sciences.html" class="sidebar-a">
 		  <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Chemical Sciences</h3>
@@ -93,6 +104,22 @@
               <div class="col-md-10 lab-list-col-10">
                 <img src="images/icon_8.png">
                 <span class="text-normal-gray-big"> Physical Sciences </span>
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-form navbar-left">
+                <div  class="input-group stylish-input-group">
+                  <input id="keyword" onkeyup="javascript:displayLabsByKeyWord('Physical Sciences')"
+                         type="text" class="form-control"
+                         placeholder="Lab Name">
+                  <span class="input-group-addon">
+                    <button type="button" id="search"
+                       onclick="javascript:displayLabsByKeyWord('Physical Sciences')"
+                       target="content_iframe" class="btn btn-default disabled" type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </ul>
 		<br>
 		<p class="text-normal-gray-smallest">
 		</p>

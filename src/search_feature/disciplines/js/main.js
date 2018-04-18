@@ -73,6 +73,32 @@ var getLabsByDiscipline = function(discId) {
   });
 };
 
+var filterLabsByKeyWord = function(labs, keyword) {
+  return labs.filter(function(lab) {
+    return lab['lab_name'].toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1;
+  });
+};
+
+var displayLabsByKeyWord = function(discId) {
+  $('#keyword').keypress(function (e) {
+    if (e.which == 13) {
+      e.preventDefault();
+    }                                                                               
+  });
+  var keyword = document.getElementById("keyword").value;
+  // getLabs()
+  getLabsByDiscipline(discId)
+    .then(function(labs) {
+      return filterLabsByKeyWord(labs, keyword);
+    })
+    .then(filterLabsByPhase)   
+    .then(buildLabsDisplayList)
+    .then(displayContentInDiv)
+    .catch(function(err) {
+      console.log("Error from displayLabsByKeyWord: " + err);
+    });
+};
+
 var filterLabsByPhase = function(labs) {
   return labs.filter(function(lab) { 
     if (phaseLength == 0) {
