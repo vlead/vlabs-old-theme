@@ -155,9 +155,9 @@ var getTheRightUrl = function(hostingInfos) {
       filteredHostingInfos = filterHostingInfo(hostingInfos, secondChoiceUrl);
     }
 
-    if (filteredHostingInfos.length == 0) {
-      filteredHostingInfos = filterHostingInfo(hostingInfos, thirdChoiceUrl);
-    }
+    // if (filteredHostingInfos.length == 0) {
+    //   filteredHostingInfos = filterHostingInfo(hostingInfos, thirdChoiceUrl);
+    // }
 
     if (filteredHostingInfos.length > 0) {
       return filteredHostingInfos[0];
