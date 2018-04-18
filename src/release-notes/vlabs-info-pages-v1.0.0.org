@@ -1,0 +1,21 @@
+#+TITLE: VLABS Information pages v1.0.0 for https://vlabs.ac.in
+#+AUTHOR: VLEAD
+#+DATE: [2017-04-19]
+
+* Introduction
+  This document describes the release notes of =VLABS Information pages=
+  version =v1.0.0=.
+  Information pages are the custom pages used on https://vlabs.ac.in
+
+
+* Features 
+  + Custom vlabs.ac.in look alike pages served from https://info.vlabs.ac.in 
+  + All other features and requirements are similiar to the one whose reference links are given below -
+    + [[https://github.com/openedx-vlead/vlabs-edx-bootstrap-theme/issues][Issues]]
+    + [[https://github.com/openedx-vlead/vlabs-edx-bootstrap-theme/milestones][Milstones]]
+    + [[https://github.com/openedx-vlead/vlabs-edx-bootstrap-theme/blob/master/requirements/index.org][Requirements]]
+* Documentation
+  + https://github.com/openedx-vlead/vlabs-edx-bootstrap-theme/blob/master/index.org 
+  + https://github.com/openedx-vlead/vlabs-custom-info-pages/blob/master/src/index.org
+
+

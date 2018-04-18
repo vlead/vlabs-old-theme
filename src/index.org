@@ -1,0 +1,82 @@
+#+TITLE: Theming of Open edX Platform - Custom HTML pages
+#+Author: VLEAD
+#+Date: [2017-04-19]
+
+* Introduction
+  This document contains the process setting up https://info.vlabs.ac.in
+
+
+* Problem 
+  Since 5959 is not in well-defined port range, most of the
+  organizations and institutes block such ports. As a result of this,
+  we got an incident reported by an institutes being not able to
+  access custom web pages from https://vlabs.ac.in. Example of such a
+  page is -
+  https://info.vlabs.ac.in/search_feature/disciplines/ElectricalEngineering/index.html
+
+  
+* Quick workaround 
+  While any change in nginx configuration of Open edX for port 80
+  resulted into 500 internal server error, tweaking it any time soon
+  is a risk. A quick workaround as discussed in the Meeting on April
+  19, 2017 is as given below -
+
+  + Have https://vlabs.ac.in to serve Open edX webpages.
+  + Have https://info.vlabs.ac.in to serve our custom pages.
+  + Reference to all links with port 5959 can be replaced with corresponding page on https://info.vlabs.ac.in.
+  + Have proper links to allow user to navigate on https://vlabs.ac.in and https://info.vlabs.ac.in vice versa.
+
+
+* Design   
+  The concept is as simple as connecting 2 websites using anchor tags. 
+  Following will be the flow if a user visits to https://vlabs.ac.in -
+  + User visits https://vlabs.ac.in
+  + From disciplines section, he say he clicks Electronics and Communication domain.  
+  + On click, user must be taken to https://info.vlabs.ac.in to get
+    the page for Electronics and Communication page.
+  + From there and from every custom page, user can return back to
+    https://vlabs.ac.in or continue accessing custom html pages from
+    https://info.vlabs.ac.in
+  
+  [[./design/design-of-vlabs-openedx-theme.jpg]]
+
+* Deployment
+  Following are the steps taken to deploy https://info.vlabs.ac.in
+  + Launch a VM in AWS (outside cluster). 
+  + Take ssh access and install nginx and git-core
+    #+BEGIN_SRC command
+    sudo apt-get update
+    sudo apt-get -y install nginx
+    sudo apt-get -y install git-core
+    #+END_SRC
+  + Configure SSL certificates
+  + Clone the repository which contains the custom html page source 
+    #+BEGIN_SRC command
+    git clone https://github.com/openedx-vlead/vlabs-custom-info-pages
+    #+END_SRC
+  + Copy the contents of =src= folder to /usr/share/nginx/html
+  + Restart nginx services 
+    #+BEGIN_SRC command
+    sudo service nginx restart
+    #+END_SRC
+ 
+    
+* Testing 
+  + Take ssh access to Open edX testing machine - vlabs-test.vlabs.ac.in
+  + Clone repository and change the branch to for-info-vlabs -
+    #+BEGIN_SRC command
+    git clone https://github.com/openedx-vlead/vlabs-edx-bootstrap-theme.git
+    git checkout for-info-vlabs
+    #+END_SRC
+  + Compile theme using standard compilation command as given in [[https://github.com/openedx-vlead/vlabs-edx-bootstrap-theme.git][theme repository]].
+  + Check that links having 5959 are now removed and pointing to corresponding link in https://info.vlabs.ac.in
+
+* Post Deployment 
+  + Install SSL certificates 
+  + Configure nginx to respond back only on https 
+  
+
+* Auto deployable version
+  The auto deployable version of Open edX is not using nginx. Please
+  check the labspec file to check the packages installed in auto
+  deployable version of https://info.vlabs.ac.in

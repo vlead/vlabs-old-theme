@@ -1,0 +1,38 @@
+#+TITLE: Design of themeing activity in VLABS Open edX
+#+Author: VLEAD
+#+Date: [2017-05-01 Monday]
+
+* Introduction
+  This document explains the design of theme applied to VLABS Open
+  edX.
+
+* Design diagram 
+
+  [[./design-of-vlabs-openedx-theme.jpg]]
+
+  Pages served from https://vlabs.ac.in theme are coming from two
+  different servers which are the following - 
+  + https://vlabs.ac.in ::
+       Comrehensive theme is applied in https://vlabs.ac.in . The
+       comprehensive theme contains the theme for pages served from
+       Open edX. In case one want to serve custom pages, port 80 is
+       blocked and you need to do so from another port.
+   
+  + https://info.vlabs.ac.in ::
+       This serves the custom pages. Following the are sections which are
+       served from this server is -
+       + Workshops 
+       + Contact us
+       + FAQs
+       + Disciplines pages
+       + Institute pages
+       + Licensing 
+  
+* Communication
+  User will always lands to https://vlabs.ac.in. This page will have
+  combination of links to https://info.vlabs.ac.in/ . For example user
+  clicks on =Electronics and Communication= page, he will be taken to
+  https://info.vlabs.ac.in/search_feature/disciplines/ElectronicsAndCommunications/index.html
+
+  If use clicks on the logo on page of Electronics and Communication,
+  he will be taken back to https://vlabs.ac.in .

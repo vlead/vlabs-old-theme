@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://vlabs.ac.in/workshops.html -->
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Welcome to Virtual Labs - A MHRD Govt of india Initiative">
+      <meta name="author" content="Virtual Labs - A MHRD Govt of india Initiative">
+      <title>Welcome to Virtual Labs - A MHRD Govt of india Initiative</title>
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Important Owl stylesheet -->
+      <link rel="stylesheet" href="css/owl.carousel.css">
+      <link rel="stylesheet" href="css/owl.theme.css">
+      <link rel="stylesheet" href="css/font-awesome.css">
+      <link rel="stylesheet" href="files/bootstrap.css">
+      <link rel="stylesheet" href="files/font-awesome.css">
+      <link rel="stylesheet" href="files/bootsnipp.css">
+      <!-- Custom CSS -->
+      <link href="css/style.css" rel="stylesheet">
+   </head>
+   <body id="page-top" class="index">
+      <div id="top">
+         <header>
+            <!--common start header code-->
+            <script src="js/jquery.js"></script>
+            <div id="headermerge"> </div>
+            <script type="text/javascript">
+               $(document).ready(function() {
+                $("#headermerge").load("https://info.vlabs.ac.in/common/header/header.html");
+                });
+            </script>
+            <!--common header code end here-->
+         </header>
+         <!--<div id="content">
+            <div class="container-fluid">
+            	<div class="row">
+            		<hr style="background:#ff6600 !important;  height: 8px; margin-top: 0px;">
+            	</div> <!-- row end -->
+         <!--</div> <!-- container-fluid end for slider -->
+         <!-- =================================================================================================================================== -->
+         <div class="container-fluid" style="margin-left: 35px; margin-right: 35px; padding-top:102px;">
+            <h2 class="text-h2-lightblue" style=" margin-bottom: 20px; margin-top: 30px; ">Runtime Browser for Virtual Labs</h2>
+            <div class="row" style="margin-left: 5px; margin-right: 35px;text-align: justify;">
+               <p class="text-h3-darkblue-bold"> Overview and Motivation </p>
+               <p>Virtual Labs is providing an easier approach to access Virtual Labs and its experiments using runtime browser through<a href="https://www.virtualbox.org/wiki"> VirtualBox</a>.<br>
+                   Installing VirtualBox will  eliminate the need for installing dependencies such as Adobe Flash, Java3D, etc. on user machine. <br>
+                  The VirtualBox that is provided by Virtual Labs can be used for both <a href="https://info.vlabs.ac.in/workshops/">Online</a> and <a href="https://info.vlabs.ac.in/college-cloud-edition/">Offline (College Cloud) </a>versions of Virtual Labs.
+               </p>
+               <p class="text-h3-darkblue-bold"> Audience </p>
+               <p>Virtual Lab users. </p>
+               <p class="text-h3-darkblue-bold"> <a name="requirements" ></a> Systems Requirements </p>
+               <div class="row" style="margin-left: 5px; margin-right: 35px;text-align: justify;">
+<p > Minimum systems requirements. </p>
+                 
+                     
+                     <p> 
+                     <ol >
+                        <li> Operating Systems (OS) - Any OS that supports Oracle VirtualBox or VMWare Workstation. The system should have the
+provision to support <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Administration_Guide/sect-Virtualization-Troubleshooting-Enabling_Intel_VT_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html"> Virtualization</a> Technology.
+                        </li>
+                        <li>4GB RAM.
+                        </li>
+                        <li> Dual Core processor.
+                        </li>
+                     </ol>
+                     </p>
+               </div>
+
+
+               <div class="md-col-12">
+               <p class="text-h3-darkblue-bold"> <b> VirtualBox installation steps</b></p>
+               <ol >
+              
+               <li> Visit the VirtualBox provider website. Please note that installation needs to be done only once.</li>
+               <li>Choose the appropriate VirtualBox version based on the Operating System ( OS ) installed on the machine.</li>
+               <li> Download the selected VirtualBox.</li>
+               <li> VirtualBox installation steps for <b>Windows OS :</b> </li>
+               <ol type="i">
+               <li> Double click on <b>.exe</b> file.</li>
+               <li> Follow the instructions appearing on installation wizard.</li>
+               <li> After installation, ensure that a VirtualBox icon is created on the desktop.</li>
+               </ol>
+               <li>Steps 6,7 and 8 are installation step examples for CentOS-6.x, Ubuntu 14.04. and Mac OS respectively. These installation steps will vary based on the version of the OS installed on the user machine. Please follow the <a href="https://www.virtualbox.org/wiki/Linux_Downloads">link</a> for appropriate steps.</li>
+               <li>VirtualBox installation steps for <b>CentOS-6.X OS :</b></li>
+     
+<ol type="i">
+               <li> Download RPM package using the following command : <br><i>wget http://download.virtualbox.org/virtualbox/5.1.6/VirtualBox-5.1-5.1.6_110634_el6-1.x86_64.rpm</i></li>
+               <li> Install VirtualBox using the following command : <br> <i>sudo rpm -i VirtualBox-5.1-5.1.6_110634_el6-1.x86_64.rpm</i></li>
+              
+               </ol>
+
+             
+               <li>VirtualBox installation steps for <b>Ubuntu 14.04 :</b> </li>
+
+<ol type="i">
+               <li> Download RPM package using the following command : <br><i>wget http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~trusty_amd64.deb</i></li>
+               <li> Install VirtualBox using the following command : <br><i>sudo dpkg -i virtualbox-5.2_5.2.0-118431~Ubuntu~trusty_amd64.deb</i></li>
+              
+               </ol>
+
+<li>VirtualBox installation steps for <b>Mac OS :</b> </li>
+
+<ol type="i">
+               <li> Follow the<a href="http://download.virtualbox.org/virtualbox/5.2.0/VirtualBox-5.2.0-118431-OSX.dmg"> link </a>to download the VirtualBox for Mac and save it.</li>
+               <li>  Double click on downloaded (.dmg) file and follow the instructions for installation.</li>
+              
+               </ol>
+ </div>
+
+
+                 
+
+
+
+   
+   
+
+
+
+               <div class="md-col-12">
+                  <p class="text-h3-darkblue-bold"> <b> Virtual-Labs VirtualBox import steps</b></p>
+                  <ol >
+                     
+                        <li> Follow the <a href="http://files.virtual-labs.ac.in/downloads/virtual-boxes/">link</a> to download and save the file ubuntu-14.04-college-cloud.ova.  Note that import steps need to be performed only once.</li>
+                        
+
+<li>Double click on the ubuntu-14.04-college-cloud.ova file. An import window will appear.</li>
+                      
+                        <li> Import the file ubuntu-14.04-college-cloud.ova and follow the steps to install it. This may take 5 to 10 minutes. </li>
+                        <li>On completion of step 3, select the ubuntu-14.04-college-cloud from the VirtualBox window. Allocate the <i>Processor</i> and <i>Memory/RAM</i> size from the Settings menu appropriately, based on the system configuration of the user machine.  </li>
+                        Recommended Settings for the imported box : <br>
+<ol type="i">
+               <li>Processor --> 1</li>
+               <li> Memory/RAM size --> 2GB</li>
+              
+               </ol>
+                          
+                        </p>
+                   
+                  </ol>
+               </div>
+
+
+
+
+
+               <div class="md-col-12">
+                  <p class="text-h3-darkblue-bold"> <b>Using VirtualBox to run Virtual Labs</b></p>
+                  <ol >
+                    
+                        <li>Windows Users: Double click the VirtualBox icon on the desktop to start the VirtualBox.</li>
+                        <li>Linux Users (CentOS, Debian, Ubuntu, etc): Search for VirtualBox on user machine and select it.</li>
+                        <li>Start ubuntu-14.04-college-cloud box.</li>
+                        <li>Login to ubuntu-14.04-college-cloud using the following credentials: <br>User Name : College Cloud <br>Password : cc</li>
+                        <li>Open Firefox and type <a href="http://vlabs.ac.in/">vlabs.ac.in</a> to use Virtual Labs.</li>
+                        <li>The above steps need to be followed each time Virtual Labs is accessed through the VirtualBox.
+</li>
+                     
+                  </ol>
+               </div>
+               <div class="md-col-12">
+                  <p class="text-h3-darkblue-bold"> <b>Note:</b></p>
+                  <ul type="disk">
+                     
+                        <li>Please use only Firefox ( provided in the VirtualBox ) to use Virtual Labs.</li>
+                        <li>Do not upgrade Firefox version in the VirtualBox.</li>
+               
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!-- =================================================================================================================================== -->
+      </div>
+      <!-- content div -->
+      <div id="footermerge"> </div>
+      <script type="text/javascript">
+         $(document).ready(function() {
+          $("#footermerge").load("https://info.vlabs.ac.in/common/footer/footer.html");
+          });
+      </script>
+      <!-- top div -->
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+      <div id="footermerge"> </div>
+      <script type="text/javascript">
+         $(document).ready(function() {
+          $("#footermerge").load("https://info.vlabs.ac.in/common/footer/footer.html");
+          });
+      </script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Custom Theme JavaScript -->
+      <script src="js/custom.js"></script>
+      <!-- Include js plugin -->
+      <script src="js/owl.carousel.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+         	 
+         	  var owl = $("#owl-demo");
+         	  owl.owlCarousel({
+         	      navigation: true,
+         	      navigationText: [
+         	                       "<img src='images/left-arrow.png'>",
+         	                       "<img src='images/right-arrow.png'>"
+         	                       ],
+         	      /* autoPlay : 3000,
+         	      stopOnHover : true */
+         	  });
+         	  
+         	  //owl for partner institutions
+         	  var owl = $("#owl-partner-institutions");
+         	  owl.owlCarousel({
+         	      navigation: true,
+         	      navigationText: [
+         	                       "<img src='images/left-arrow.png'>",
+         	                       "<img src='images/right-arrow.png'>"
+         	                       ],
+         	      autoPlay : 3000,
+         	      stopOnHover : true,
+         	      items : 8,
+         	  });
+         	 
+         	
+         
+          //owl for aboutus
+           var owl = $("#owl-aboutus");
+           owl.owlCarousel({
+               navigation: true,
+               singleItem:true
+           });
+          
+         });
+      </script>
+   </body>
+</html>
+
+
