@@ -1,5 +1,5 @@
-var loadIndex = function() {
-  displayLabsOfDiscipline();
+var loadIndex = function(discId) {
+  displayLabsOfDiscipline(discId);
 };
 
 var getJSON = function(resourcePath) {
@@ -28,7 +28,6 @@ var get = function get(url) {
 var disciplinePromise;
 var getDisciplines = function() {
   disciplinePromise = disciplinePromise || getJSON(disResPath);
-
   return disciplinePromise.then(function(disciplines) {
     return disciplines;
   });
@@ -64,9 +63,6 @@ var getLabsByDiscipline = function(discId) {
   var labsByDiscPromise;
   if (searchList.length == 0) {
     labsByDiscPromise = getJSON(labByDiscResPath);
-    console.log("**************");
-    console.log(labByDiscResPath);
-
     labsByDisciplinePromises.push({'id': discId, 'promise': labsByDiscPromise});
   } else {
     labsByDiscPromise = searchList[0].promise;
@@ -136,7 +132,7 @@ var modifyUrl = function(url) {
 };
 
 var displayLabsOfDiscipline = function(discId) {
- getLabsByDiscipline("Physical Sciences")
+ getLabsByDiscipline(discId)
     .then(filterLabsByPhase)
     .then(buildLabsDisplayList)
     .then(displayContentInDiv)
