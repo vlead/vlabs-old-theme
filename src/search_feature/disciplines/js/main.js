@@ -178,7 +178,7 @@ var filterLabsByPhase = function(labs) {
 	var image_name = assets[0].path;
 	var path = labImagesUrl + image_name;
 	// return lab_name;
-      return '<div class="col-md-10 lab-list-row-div" id='+ lab_id + '> <div style="margin-top: 20px; " class=" col-md-8" style="cursor:pointer; padding: 0px !important;"><a  href="' + hosted_url + '" ><div><p id="' + hosted_url + '"  >'+ lab_name +'</p></a></div> </div> <div class="col-md-2"><p>'+ institute_name +' </p></div><div class="col-md-2"><p><img style="width:1.5em; height:1.5em;" src="./images/syllabus.png">syllabus</img></p><p><img style="width:1.5em; height:1.5em;" src="./images/refbook.png">references</img></p> </div></div>';
+      return '<div class="col-md-10 lab-list-row-div" id='+ lab_id + '> <div style="margin-top: 20px; " class=" col-md-8" style="cursor:pointer; padding: 0px !important;"><a  href="' + hosted_url + '" ><div><p id="' + hosted_url + '"  >'+ lab_name +'</p></a></div> </div> <div class="col-md-2"><p class="text-normal-gray-small">'+ institute_name +' </p></div><div class="col-md-2"><p class="nounderline"><img style="width:1.5em; height:1.5em;" src="./images/syllabus.png">Syllabus</img></p><p class="nounderline"><img style="width:1.5em; height:1.5em;" src="./images/refbook.png">References</img></p><p><img style="width:1.5em; height:1.5em;" src="./images/chat.png" >Lecture</img></p> </div></div>';
     });
   
     var displayLabs = displayList.reduce(function(acc, el) {
