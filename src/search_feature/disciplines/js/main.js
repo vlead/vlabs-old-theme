@@ -72,6 +72,12 @@ var filterLabsByKeyWord = function(labs, keyword) {
   });
 };
 
+var handleEventOnADiscipline = function(obj) {
+  var discipline_name = (obj.id).toString().toLowerCase();
+  var html_file = discipline_name.split(' ').join('-')+".html";
+  window.location = html_file;
+};
+
 var displayAllDisciplines = function() {
  getDisciplines()
     .then(buildDisciplineDisplayList)
@@ -95,10 +101,11 @@ var buildDisciplineDisplayList = function(disciplines) {
     return 0;
   });
 
+  var discipline_data = [{"ece": "electronics-communications.html"}, {"cse": "computer-science.html"}];
   var displayList = disciplines.map(function(discipline) {
     var discipline_id = discipline['discipline_name'];
     var discipline_name = discipline['discipline_name'];                                              
-    return '<div><a href="./electronics-communications.html" class="sidebar-a"><h3 class="text-h3-darkblue" style="margin-top: 2px;">' + discipline_name + '</h3></a></div>';
+    return '<div><a id="'+ discipline_id +'" class="sidebar-a"><p id="'+ discipline_id +'" onclick="javascript:handleEventOnADiscipline(this)" class="text-h3-darkblue" style="margin-top: 2px;">' + discipline_name + '</p></a></div>';
   });
 
   var displayDisciplines = displayList.reduce(function(acc, el) {
