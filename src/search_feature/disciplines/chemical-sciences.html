@@ -25,32 +25,15 @@
     <!-- Custom CSS -->
     <link href="./css/style.css" rel="stylesheet">
     <title>analytics</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"></script>
-    <script type="text/template" id="tpl-html">
-      <% _.each( target, function(i) {%>
-      <div style="margin-top: 20px; " class="lab-list-row-div">
-	<div class="col-md-12">
-	  <p class="text-h3-darkblue"><a href="<%= i.hosting_info[0].hosted_url %>"><%= i.lab_name %></a></p></div>
-      </div>
-      <% }); %>
-    </script>
-</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://s3-us-west-1.amazonaws.com/ld-service/images/vlabs-logo/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <script type="text/javascript" src="./js/app-config.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
 
-<script>
-  function generateTopLabs() {
-  var jqxhr = $.getJSON('http://lds.vlabs.ac.in/labs?discipline_name=Chemical Sciences', function(data) {
-  var data = { target: data };
-  console.log(data);
-  var template = _.template( $("#tpl-html").text() );
-  $("#output").html( template(data) );
-  })
-  .error(function(jqxhr, textStatus, errorThrown) {
-  console.log("error " + textStatus);
-  console.log("incoming Text " + jqxhr.responseText);
-  });
-  }
-</script>
 <!--common start header code-->
 <script src="js/jquery.js"></script>
 	    <div id="headermerge"> </div>
@@ -61,81 +44,260 @@
 </script>
 <!--common header code end here-->
 </head>
-<body id="page-top" class="index" onload="generateTopLabs()">
+<body id="page-top" class="index" onload="loadIndex('Chemical Sciences')">
   <div id="top">
     <header>
-    </header>
-    <!==================================Disciplines sidebar starts from here===============================>
-         <div class="container-fluid" style="margin-left: 35px; margin-right: 35px; padding-top:102px;">
-            <h2 class="text-h2-lightblue" style=" margin-bottom: 20px; margin-top: 10px; ">Disciplines and Domains</h2>
-            <div class="row">
-	       <div class="col-md-2 sidebar-col-2">
-                  <a href="./electronics-communications.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Electronics &amp; Communications</h3>
-                  </a>
-                  <a href="./computer-science.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Computer Science &amp; Engineering</h3>
-                  </a>
-                  <a href="./electrical-engineering.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Electrical Engineering</h3>
-                  </a>
-                  <a href="./mechanical-engineering.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Mechanical Engineering</h3>
-                  </a>
-                  <a href="./chemical-engineering.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px; "> Chemical Engineering</h3>
-                  </a>
-                  <a href="./biotechnology-and-biomedical-engineering.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px; " > Biotechnology &amp; Biomedical Engineering</h3>
-                  </a>
-                  <a href="./civil-engineering.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Civil Engineering</h3>
-                  </a>
-                  <a href="./physical-sciences.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Physical Sciences</h3>
-                  </a>
-                  <a href="./chemical-sciences.html" class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px; color: #ff6600;"> Chemical Sciences</h3>
-                  </a>
-                  <a href="./other-disciplines.html"class="sidebar-a">
-                     <h3 class="text-h3-darkblue" style="margin-top: 2px;"> Other Disciplines</h3>
-                  </a>
-                  <div class="contactus">
-                     <span class="text-normal-gray-smallest"> Contact</span>
-                     <p class="contectus-gray-smallest">
-                        Prof. Soami P Satsangee
-                        deiusic@gmail.com
-                     </p>
-                  </div>
-               </div>
-               <div class="col-md-10 lab-list-col-10">
-                  <img src="images/icon_9.png">
-                  <span class="text-normal-gray-big"> Chemical Sciences </span>
-          <br>
-          <p class="text-normal-gray-smallest">
-          </p>
-          <ol>
-            <li class="text-normal-gray-smallest" style="text-align: justify;">In order to derive maximum learning experience, the users are advised to first read the step-by-step instruction availiable in each lab before performing the experiments.</li>
-	    <li class="text-normal-gray-smallest" style="text-align: justify;"> Some 
-              labs may require users to install plug-in. Follow the <a href="https://info.vlabs.ac.in/search_feature/PreRequisites/" class="nounderline">link</a> to view the mapping of the labs to their pre-requisites. 
-            </li>
-            <li class="text-normal-gray-smallest" style="text-align: justify;">Some labs may require users to log in.</li>
-            <!--<li class="text-normal-gray-smallest" style="text-align: justify;">Related NPTEL lectures are also available on the link given below.</li>-->
-          </ol>
-          <p>
-	  </p>
-	  <div class="col-md-12">
-            <div style="margin-top: 20px; " >
-              <div class="col-md-12" id="output">
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="container">
+      <nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation" style="z-index: 9999999">
+  <div >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div>
+        <a class="navbar-brand main-logo-a" href="" style=" width:100px; height:40px; margin-top:-13px"><img src="./images/logo.png" class="img-responsive main-logo" style="width:100%; maring-top:2px;"></a>
       </div>
     </div>
+<!--<script src="files/BSAcpc.js" async=""></script>-->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-2" aria-expanded="false" style="height: 1px;">
+      <ul class="nav navbar-nav navbar-left">
+        <!--<li class="visible-xs">
+          <form action="http://bootsnipp.com/search" method="GET" role="search">
+            <div class="input-group">
+              <input class="form-control" name="q" placeholder="Enter Discipline Name" type="text">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button>
+              </span>
+            </div>
+          </form>
+        </li>-->
+
+        <li class="">
+          <a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false">Labs <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li class=""><a href="./src/search_feature/disciplines/ElectronicsAndCommunications/index.html" class="">All Labs (Domain Wise)</a></li>
+<li class=""><a href="./src/search_feature/institutes/IIT-Delhi/index.html" class="">All Labs (Institute Wise)</a></li>
+         
+
+
+          </ul>
+        </li>
+
+
+
+<li class="">
+          <a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false">Community <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li class=""><a target="_blank" href="https://plus.google.com/communities/104131148292250423165" class="">Teachers</a></li>
+            <li class=""><a target="_blank" href="https://groups.google.com/a/vlabs.ac.in/forum/#!forum/engineers" class="">Developers </a></li>
+	    <li class=""><a target="_blank" href="https://groups.google.com/a/vlabs.ac.in/forum/#!forum/users" class="">Students </a></li>
+
+
+
+
+	    
+          </ul>
+        </li>
+
+<li class="">
+          <a href="" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false">Development<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li class=""><a target="_blank" href="http://dev.vlabs.ac.in/" class="">Virtual Labs Development </a></li>
+<li class=""><a href="./src/runtime-browser-for-virtual-labs" class="">Runtime Browser for Virtual Labs </a></li>
+           
+
+
+          </ul>
+        </li>
+
+<li class="">
+          <a href="./src/workshops/" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false">Workshops<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li class=""><a href="./src/workshops/" class="">Online</a></li>
+           <li class=""><a href="./src/college-cloud-edition/" class="">College Cloud Edition</a></li>
+
+          </ul>
+        </li>
+
+
+
+<li class="">
+          <a href="" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false" s>FAQ<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+	    <li class=""><a href="./src/faq/index.html" class="">Virtual Labs</a></li>
+            <li class=""><a href="./src/faq/index.html" class="">Virtual Labs College Cloud Edition</a></li>
+            <li class=""><a href="./src/faq/index.html" class="">Expression of Interest For Workshops</a></li>
+           
+
+
+          </ul>
+        </li>
+
+
+<li class="">
+          <a href="" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false" s>Information<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+	    <li class=""><a href="./src/announcements/index.html" class="">Announcements</a></li>
+            <li class=""><a href="./src/contactus" class="">Contact us  </a></li>
+           <li class=""><a href="./src/2017-summer-internship" class="">2017-summer-internship</a></li>
+           
+
+
+          </ul>
+        </li>
+
+
+        
+
+<!--<li class="hidden-xs"><a href="#toggle-search" class=""  style="padding-right:225px;">Search <img src ="images/bsearch.png" style="width:23px"></a></li>-->
+<li><i class="search fa search"></i>
+							  <!--<div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Search for snippets" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label for="filter">Filter by</label>
+                                    <select class="form-control">
+                                        <option value="0" selected>All Snippets</option>
+                                        <option value="1">Featured</option>
+                                        <option value="2">Most popular</option>
+                                        <option value="3">Top rated</option>
+                                        <option value="4">Most commented</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Author</label>
+                                    <input class="form-control" type="text" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Contains the words</label>
+                                    <input class="form-control" type="text" />
+                                  </div>
+                                 <!-- <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                </div>-->
+						</li>
+  
+
+<!--<li class=""><a href="https://vlabs.ac.in/register" class="">Register</a></li>
+<li id="nav-login-btn" class=""><a href="https://vlabs.ac.in/login" class="">Sign in</a></li>
+<li id="nav-login-btn" class=""><a href="https://vlabs.ac.in/login" class="">Sign out</a></li>-->
+        
+      <!-- <li class="hidden-xs"><a href="#toggle-search" class="">Search <img src ="images/bsearch.png" style="width:23px"></a></li>-->
+<!--<li class="hidden-xs"><a href="#toggle-search" class=""><span class="glyphicon glyphicon-search"></span></a></li>-->
+      </ul>
+
+
+       <!-- <div class="nav navbar-nav navbar-right" > <li class=""><a href="" class="">Register</a></li>
+          <li id="nav-login-btn" class=""><a href="" class="">Sign in</a></li>
+        
+        <li class="hidden-xs"><a href="#toggle-search" class="">Search <img src ="images/search.png" style="width:30px"></a></li>
+<!--<li class="hidden-xs"><a href="#toggle-search" class=""><span class="glyphicon glyphicon-search"></span></a></li>-->
+      <!--</ul></div>  -->       
+    </div>
+  </div>
+
+
+  <!--search start from here-->
+
+<!--<div class="bootsnipp-search " style="width:50%; left:606px">
+    <div class="">
+      <form action="http://vlabs.ac.in" method="GET" role="search">
+        <div class="input-group">
+          <input class="form-control" name="q" placeholder="Enter lab name" type="text">
+	  <span class="input-group-btn">
+            <button class="btn btn-primary" type="reset"><img src="images/wsearch.png" style="width:23px"></button>
+          </span>
+ <input class="form-control" name="q" placeholder="Enter Board Area" type="text">
+	  <span class="input-group-btn">
+            <button class="btn btn-primary" type="reset"><img src="images/wsearch.png" style="width:23px"></button>
+          </span>
+
+
+        </div>
+      </form>
+    </div>
+  </div>-->
+<!--search end from here-->
+</nav>      
+</div>
+    </header>
+    <!==================================Disciplines sidebar starts from here===============================>
+        <div class="container-fluid" style="margin-left:
+                                            35px;
+                                            margin-right:
+                                            35px;
+                                            padding-top:102px;">
+
+          <div class="row">
+            <h2 class="text-h2-lightblue" style="
+            margin-bottom: 20px; margin-top: 30px;
+            ">Disciplines and Domains</h2>                          </div>
+          <div class="row">
+              <div class="col-md-2 sidebar-col-12" id="disciplines"></div>
+              <div> 
+                <img src="images/icon_9.png"> 
+                <span class="text-normal-gray-big">Chemical Sciences</span> 
+            <!-- <ul class="nav navbar-nav navbar-right">  -->
+            <!--   <form class="navbar-form navbar-left">  -->
+            <!--     <div  class="input-group stylish-input-group">  -->
+            <!--       <input id="keyword" onkeyup="javascript:displayLabsByKeyWord('Physical Sciences')"  -->
+            <!--              type="text" class="form-control"  -->
+            <!--              placeholder="Lab Name">  -->
+            <!--       <span class="input-group-addon">  -->
+            <!--         <button type="button" id="search"  -->
+            <!--            onclick="javascript:displayLabsByKeyWord('Physical Sciences')"  -->
+            <!--            target="content_iframe" class="btn btn-default disabled" type="submit">  -->
+            <!--           <span class="glyphicon glyphicon-search"></span>  -->
+            <!--         </button>  -->
+            <!--       </span>  -->
+            <!--     </div>  -->
+            <!--   </form> -->
+            <!-- </ul> -->
+		<br>
+		<p class="text-normal-gray-smallest"> 
+		</p> 
+		<ol> 
+		  <li class="text-normal-gray-smallest" style="text-align: justify;">In order to derive maximum learning experience, the users are advised to first read the step-by-step instruction availiable in each lab before performing the experiments.</li> 
+		  <li class="text-normal-gray-smallest" style="text-align: justify;"> Some  
+		    labs may require users to install plug-in. Follow the <a href="https://info.vlabs.ac.in/search_feature/PreRequisites/" class="nounderline">link</a> to view the mapping of the labs to their pre-requisites.  
+		  </li> 
+		  <li class="text-normal-gray-smallest" style="text-align: justify;">Some labs may require users to log in.</li> 
+		  <!--<li class="text-normal-gray-smallest" style="text-align: justify;">Related NPTEL lectures are also available on the link given below.</li>--> 
+		</ol> 
+		<p> 
+		</p> 
+		<div>
+		  <div style="margin-top: 20px; " >
+		    <div id="output">
+		    </div>
+		  </div>
+		</div>
+              </div>
+	    </div>
+	</div>
   </div>
   
- <!-- content div -->
+  <!-- content div -->
   <div id="footermerge"> </div>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -150,6 +312,13 @@
   <!-- Include js plugin -->
   <!--POPUP-->
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-
+  
 </body>
 </html>
+
+
+
+
+
+
+

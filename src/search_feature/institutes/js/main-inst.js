@@ -1,6 +1,6 @@
-var loadIndex = function(discId) {
-  displayLabsOfDiscipline(discId);
-  displayAllDisciplines();
+var loadIndex = function(instId) {
+  //displayLabsOfDiscipline(discId);
+  displayAllDisciplines(instId);
 };
 
 var getJSON = function(resourcePath) {
@@ -50,13 +50,13 @@ var filterQuery = function(ls, id) {
 
 
 var labsByDisciplinePromises = [];
-var getLabsByDiscipline = function(discId) {
-  var labByDiscResPath = labsByDiscUrl + discId;
-  var searchList = filterQuery(labsByDisciplinePromises, discId);
+var getLabsByDiscipline = function(instId) {
+  var labByDiscResPath = labsByDiscUrl + instId;
+  var searchList = filterQuery(labsByDisciplinePromises, instId);
   var labsByDiscPromise;
   if (searchList.length == 0) {
     labsByDiscPromise = getJSON(labByDiscResPath);
-    labsByDisciplinePromises.push({'id': discId, 'promise': labsByDiscPromise});
+    labsByDisciplinePromises.push({'id': instId, 'promise': labsByDiscPromise});
   } else {
     labsByDiscPromise = searchList[0].promise;
   }
@@ -117,7 +117,7 @@ var buildDisciplineDisplayList = function(disciplines) {
     '</div>';
 };
 
-var displayLabsByKeyWord = function(discId) {
+var displayLabsByKeyWord = function(instId) {
   $('#keyword').keypress(function (e) {
     if (e.which == 13) {
       e.preventDefault();
@@ -125,7 +125,7 @@ var displayLabsByKeyWord = function(discId) {
   });
   var keyword = document.getElementById("keyword").value;
   // getLabs()
-  getLabsByDiscipline(discId)
+  getLabsByDiscipline(instId)
     .then(function(labs) {
       return filterLabsByKeyWord(labs, keyword);
     })
@@ -203,8 +203,8 @@ var modifyUrl = function(url) {
   return hostedBaseForOpenEdx + "/" + url.split("/").slice(3).join("/");
 };
 
-var displayLabsOfDiscipline = function(discId) {
- getLabsByDiscipline(discId)
+var displayLabsOfDiscipline = function(instId) {
+ getLabsByDiscipline(instId)
     .then(filterLabsByPhase)
     .then(buildLabsDisplayList)
     .then(displayContentInDiv)

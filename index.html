@@ -14,9 +14,185 @@
   <!--<link rel="stylesheet" href="https://info.vlabs.ac.in/common/header/files/font-awesome.css">-->
   <link rel="stylesheet" href="./files/css/bootsnipp.css">
   <link rel="icon" type="image/x-icon" href="./files/images/favicon.ico">
-  
+  <script>
+
+ var loadIndex = function() {
+ fillLabCount();
+  fillExpCount();
+  fillDataAndSetEventForLogUsage();
+  fillDataAndSetEventForWsUsage();
+  fillUsersCount();
+ };
+ var ldsUrl = "https://lds.vlabs.ac.in";
+ var userAnalyticsPath = "http://analytics.vlabs.ac.in/api/vlabs_user_analytics";
+ var labResPath = ldsUrl + "/labs?cached=1&consumer=lp";
+ var expResPath = ldsUrl +"/experiments";
+ var usageUrl = "https://analytics.vlabs.ac.in/analytics/vlabs";
+ var wsUsageUrl = "https://outreach.vlabs.ac.in/get_outreach_analytics";
+ var phaseLength = 1;
+ var phaseId = 2;
+ 
+var fillDataAndSetEventForWsUsage = function() {
+  getWsUsage()
+    .then(displayWsUsage)
+    .then(setClickEventHandlerOnWsUsage)
+    .catch(function(err) {
+      console.log("Error from fillDataAndSetEventForWsUsage: " + err);
+    });
+};
+
+var wsUsagePromise;
+var getWsUsage = function() {
+  wsUsagePromise = wsUsagePromise || getJSON(wsUsageUrl);
+  return wsUsagePromise.then(function(data) {
+    return data;
+  });
+}
+ 
+ var fillDataAndSetEventForLogUsage = function() {
+  getLogUsage()
+    .then(displayLogUsage)
+    .then(setClickEventHandlerOnLogUsage)
+    .catch(function(err) {
+      console.log("Error from fillDataAndSetEventForLogUsage: " + err);
+    });
+};
+
+ var logUsagePromise;
+var getLogUsage = function() {
+  logUsagePromise = logUsagePromise || getJSON(usageUrl);
+    return logUsagePromise.then(function(data) {
+      return data;
+  });
+};
+
+ 
+ var fillExpCount = function() {
+  getExp()
+    .then(displayexpCount)
+    .catch(function(err) {
+      console.log("Error from display exp count: " + err);
+    });
+};
+
+ var displayexpCount = function(data) {
+  document.getElementById("expDisplay").innerText = data.length.toLocaleString();
+};
+
+ var expPromise;
+var getExp = function() {
+  expPromise = expPromise || getJSON(expResPath);
+  return expPromise.then(function(data) {
+    return data;
+  });
+}
+
+var fillLabCount = function() {
+  getLabs()
+    .then(filterLabsByPhase)
+    .then(displaylabCount)
+    .catch(function(err) {
+      console.log("Error from display lab count: " + err);
+    });
+};
+
+var filterLabsByPhase = function(labs) {
+  return labs.filter(function(lab) { 
+    if (phaseLength == 0) {
+      return true;
+    }
+    else {
+      return ((lab.phase.length == phaseLength) && (lab.phase[0].phase_id == phaseId)); 
+    }
+  }) 
+};
+ 
+var displaylabCount = function(data) {
+  document.getElementById("labDisplay").innerText = data.length.toLocaleString();
+ };
+
+var labPromise;
+var getLabs = function() {
+  labPromise = labPromise || getJSON(labResPath);
+  return labPromise.then(function(labs) {
+    return labs;
+  });
+}
+
+ 
+var displayexpCount = function(data) {
+  document.getElementById("expDisplay").innerText = data.length.toLocaleString();
+};
+
+var setClickEventHandlerOnLogUsage = function() {
+  document.getElementById("logUsageClick").removeEventListener("click", showLogUsageDetailPage);
+  document.getElementById("logUsageClick").addEventListener("click", showLogUsageDetailPage);
+
+};
+
+var displayLogUsage = function(data) {
+  document.getElementById("logUsageDisplay").innerText = data["analytics"]["nonopenedx"]["usage"].toLocaleString();
+};
+
+var setClickEventHandlerOnWsUsage = function() {
+  document.getElementById("wsUsageClick").removeEventListener("click", showWsUsageDetailPage);
+  document.getElementById("wsUsageClick").addEventListener("click", showWsUsageDetailPage);
+
+};
+
+var displayWsUsage = function(data) {
+  document.getElementById("wsUsageDisplay").innerText = data["usage"].toLocaleString();
+};
+
+var getJSON = function(resourcePath) {
+  return get(resourcePath).then(JSON.parse);
+ };
+
+var get = function get(url) {
+  return new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest(url);
+    req.open('GET', url);
+    req.onload = function() {
+      if (req.status == 200) {
+        resolve(req.response);
+      } else {
+        reject(Error(req.statusText));
+      }
+    };
+
+    req.onerror = function() {
+      reject(Error("network error"));
+    };
+    req.send();
+  });
+};
+
+ 
+
+var usersPromise;
+var getUsers = function() {
+  usersPromise = usersPromise || getJSON(userAnalyticsPath);
+  return usersPromise.then(function(data) {
+    return data;
+  });
+}
+ 
+var fillUsersCount = function() {
+  getUsers()
+    .then(displayUsersCount)
+    .catch(function(err) {
+      console.log("Error from display users count: " + err);
+    });
+};
+
+var displayUsersCount = function(data) {
+  document.getElementById("displayUsersCount").innerText = data['registered_users'].toLocaleString();
+};
+
+
+  </script>
 </head>
-<body>
+<body onload="loadIndex()">
   <!-- Navigation -->
   <nav class="navbar navbar-bootsnipp animate" role="navigation" style="z-index: 9999999">
     <div class="container">
@@ -123,55 +299,79 @@
     </a>
   </div>
 </div>
+
+
+<div class="container-fluid">
+<div class="row">
+  <div class="features">
+    <div style="visibility: visible;
+                animation-duration: 1000ms; animation-delay: 600ms;
+                animation-name: fadeInDown;"
+         class="col-md-2 col-sm-6 wow fadeInDown animated"
+         data-wow-duration="1000ms" data-wow-delay="600ms">
+      <div class="feature-wrap">
+        <h3 class="text-h3-darkblack-bold"
+            style="text-align: center;">Labs
+          <span id="labDisplay"></span> <sup>+</sup></h3>
+      </div>
+    </div>
+    <div class="features">
+      <div style="visibility: visible; animation-duration:
+            1000ms; animation-delay: 600ms; animation-name:
+            fadeInDown;"
+           class="col-md-2 col-sm-6 wow fadeInDown animated"
+           data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="feature-wrap">
+          <h3 class="text-h3-darkblack-bold"
+              style="text-align: center;">Experiments
+            <span id="expDisplay"></span> <sup>+</sup></h3>
+        </div>
+      </div>
+      <div style="visibility: visible; animation-duration:
+              1000ms;
+              animation-delay: 600ms; animation-name: fadeInDown;"
+           class="col-md-2 col-sm-6 wow fadeInDown animated"
+           data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="feature-wrap">
+          <h3 class="text-h3-darkblack-bold"
+              style="text-align: center;">
+            <a id="logUsageClick" class="broad-labs-a"style="cursor: pointer"; >Usage</a>
+            <span id="logUsageDisplay"></span> <sup>+</sup></h3>
+        </div>
+      </div>                
+      <div style="visibility: visible; animation-duration:
+                  1000ms;
+                  animation-delay: 600ms; animation-name: fadeInDown;"
+           class="col-md-3 col-sm-6 wow fadeInDown animated"
+           data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="feature-wrap">
+          <h3 class="text-h3-darkblack-bold"
+              style="text-align: center;">
+            <a id="wsUsageClick" class="broad-labs-a"  style="cursor: pointer";>Workshop Usage</a>
+            <span id="wsUsageDisplay" ></span> <sup>+</sup></h3>
+        </div>
+      </div>
+    <div style="visibility: visible;
+                animation-duration: 1000ms; animation-delay: 600ms;
+                animation-name: fadeInDown;"
+         class="col-md-3 col-sm-6 wow fadeInDown animated"
+         data-wow-duration="1000ms" data-wow-delay="600ms">
+      <div class="feature-wrap">
+        <h3 class="text-h3-darkblack-bold"
+        style="text-align: center;">Active Users
+          <span id="displayUsersCount"></span><sup>+</sup></h3>
+      </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
 <!-- Analytics section here-->
-<section id="feature">
-   <div class="">
-      <div class="center wow fadeInDown">
-         <h2> </h2>
-         <!--p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p-->
-      </div>
-      <div class="row">
-         <div class="features">
-            <div class="col-md-2 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-               <div class="feature-wrap">
-                  <!--<i class="fa fa-area-chart"></i>-->
-                  <h3 class="text-h3-darkblack-bold" style="text-align: center;">  Labs 180<sup>+</sup> </h3>
-                  <!--h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3-->
-               </div>
-            </div>
-            <div class="features">
-               <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                  <div class="feature-wrap">
-                     <!-- <i class="fa fa-area-chart"></i>-->
-                     <h3 class="text-h3-darkblack-bold" style="text-align: center;">   Experiments 1700<sup>+</sup></h3>
-                     <!--h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3-->
-                  </div>
-               </div>
-               <!-- <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                  <div class="feature-wrap">
-                     <!-- <i class="fa fa-area-chart"></i>-->
-               <!--<h1 class="text-h3-darkblue-bold" style="text-align: center;">27 Registered students </h1>
-                  <!--h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3-->
-               <!--</div>
-                  </div>-->
-               <div class="col-md-3 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                  <div class="feature-wrap">
-                     <!--<i class="fa fa-area-chart"></i>-->
-                     <h3 class="text-h3-darkblack-bold"  style="text-align: center;" ><a href="https://info.vlabs.ac.in/analytics/analytics/usage.html" class="broad-labs-a">Usage</a> <span id="server_usage"></span> <sup>+</sup></h3>
-                     <!--h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3-->
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                  <div class="feature-wrap">
-                     <!--<i class="fa fa-area-chart"></i>-->
-                     <h3 class="text-h3-darkblack-bold" style="text-align: center;"><a href="https://info.vlabs.ac.in/analytics/analytics/usage.html" class="broad-labs-a">Workshop Usage</a> <span id="usage"></span> <sup>+</sup></h3>
-                     <!--h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3-->
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-</section>
 <!--This is a section for Disciplines -->
 <div class="container-fluid" style="margin-left: 35px; margin-right: 35px;">
 <h2 class="text-h2-lightblue" style=" margin-bottom: 20px; margin-top: 20px; ">Disciplines and Domains</h2>
@@ -282,6 +482,8 @@
    	<div class="col-md-2-5-2">
    	</div>
    </div>-->
+
+
 <div class="col-md-2-5" style="  background: url('./files/images/dotted-devider-v-o.png') no-repeat; background-position: right top;">
 <a href="./src/search_feature/disciplines/other-disciplines.html" class="broad-labs-a">
 <div class="col-md-2-5-1-l">
@@ -294,6 +496,13 @@
 </div>
 </a>
 </div>
+
+
+
+
+
+
+
 </div>
 </div>
 </div>
