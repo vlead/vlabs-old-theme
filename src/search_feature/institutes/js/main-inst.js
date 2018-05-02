@@ -1,5 +1,5 @@
 var loadIndex = function(instId) {
-  //displayLabsOfDiscipline(discId);
+  //displayLabsOfDiscipline(discId;
   displayAllDisciplines(instId);
 };
 
