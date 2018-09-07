@@ -25,14 +25,18 @@
     <!-- Nivo Slider Theme -->
     <link href="http://files.vlabs.ac.in/iiith-landing-pages/css/nivo-slider-theme.css" rel="stylesheet">
     <!-- Main Stylesheet File -->
-    <link href="http://files.vlabs.ac.in/iiith-landing-pages/css/style.css" rel="stylesheet">
+     <link href="css/style.css" rel="stylesheet">
+    <!--<link href="http://files.vlabs.ac.in/iiith-landing-pages/css/style.css" rel="stylesheet">-->
     <link href="http://files.vlabs.ac.in/iiith-landing-pages/scss/style.scss" rel="stylesheet">
     <!-- Responsive Stylesheet File -->
-    <link href="http://files.vlabs.ac.in/iiith-landing-pages/css/responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!--<link href="http://files.vlabs.ac.in/iiith-landing-pages/css/responsive.css" rel="stylesheet">-->
   </head>
   <body data-spy="scroll" data-target="#navbar-example">
     <div id="preloader"></div>
-    <header>
+
+
+ <header>
       <!-- header-area start -->
       <div id="sticker" class="header-area">
         <div class="container-fluid">
@@ -53,7 +57,7 @@
                   <a href="https://iiith.vlabs.ac.in/" class="navbar-brand page-scroll sticky-logo" >
                     <!-- <h1><span>e</span>Business</h1>-->
                     <!-- Uncomment below if you prefer to use an image logo -->
-                    <img src="http://files.vlabs.ac.in/iiith-landing-pages/img/logo-new.png" alt="" title="" style="width:100%; height:62px;"> 
+                    <img src="http://files.vlabs.ac.in/iiith-landing-pages/img/logo-new.png" alt="" title="" class="img-responsive" > 
                   </a>
                   <span class="vline" ></span> 
                   <img href="https://www.iiit.ac.in/" src="http://files.vlabs.ac.in/iiith-landing-pages/img/iiith-logo.png" style="width:45%; height:78px; padding-top:10px;">
@@ -93,7 +97,7 @@
       </div>
       <!-- header-area end -->
     </header>
-    <!-- header end -->
+
     <section id="intro">
       <div class="intro-container">
         <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
@@ -102,9 +106,23 @@
               <div class="carousel-background"><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/bg.jpg" alt="" class="img-responsive;"></div>
                      <div class="carousel-container">
                        <div class="carousel-content">
-                         <p style="padding-left:260px;"> Explore </p>
-                         <p style="padding-left:337px;"> Experiment</p>
-                         <p style="padding-left:467px;"> Discover </p>
+			 <div class="col-md-12">
+			   <div class="col-md-2"></div>
+                           <div class="col-md-2"> <p > Explore </p></div>
+			   <div class="col-md-8"></div>
+			 </div>
+
+			 <div class="col-md-12">
+			   <div class="col-md-3"></div>
+			 <div class="col-md-3">
+                           <p > Experiment</p></div>
+			 <div class="col-md-6"></div>
+			 </div>
+			 <div class="col-md-12">
+			   <div class="col-md-6"></div>
+                           <div class="col-md-2"><p > Discover </p></div>
+			   <div class="col-md-4"></div>
+			 </div>
                        </div>
                      </div>
             </div>
@@ -147,10 +165,11 @@
 		  <div class="slider-content">
 		    
 		    <!-- layer 1 -->
-		    <div class="layer-1-1 hidden-xs wow slideInDown" data-wow-duration="2s" data-wow-delay=".2s">
+		    <div class="layer-1-1  wow slideInDown" data-wow-duration="2s" data-wow-delay=".2s">
 		      <h2 class="title1"> Virtual Labs, a mission mode MHRD project under NMEICT,  provides free, laboratory learning 
 			experience to students through remote experimentation..</h2>
 		    </div>
+
 		  </div>
 		</div>
 	      </div>
@@ -164,7 +183,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 		  <div class="slider-content text-center">
 		    <!-- layer 1 -->
-		    <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+		    <div class="layer-1-1 wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
 		      <h2 class="title1">Free Workshops, are conducted  and  nodal centers  are setup  to partner with institutes of the 
 			Virtual Labs consortium for the adoption of Virtual Labs. </h2>
 		    </div>
@@ -181,7 +200,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 		  <div class="slider-content">
 		    <!-- layer 1 -->
-		    <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+		    <div class="layer-1-1  wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
 		      <h2 class="title1"> To keep in pace with growing
 			needs of students, experiments across domains are conceptualized,
 			aligned and built using cutting-edge open source technologies.</h2>
@@ -198,7 +217,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 		  <div class="slider-content">
 		    <!-- layer 1 -->
-		    <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
+		    <div class="layer-1-1  wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
 		      <h2 class="title1"> State of the art digital
 			classroom is available for streaming video lectures
 			to complement Virtual Lab experiments.</h2>
@@ -227,7 +246,7 @@
 	      <div class="table-responsive">
 		<p style="color:#fff; text-align:center;">  Computer Science</p>
 		<a href="#">
-		  <table style="width:100%" class="table">
+		  <table>
 		    <tr>
 		      <td><a target="_blank" href="http://cse14-iiith.vlabs.ac.in/">VLSI </a></td>
 		      <td><a target="_blank" href="http://cse15-iiith.vlabs.ac.in/">Digital Logic Design </a></td>
@@ -263,7 +282,7 @@
 	      <div>
 		<p style="color:#fff;  text-align:center;"> Civil Engineering</p>
 		<a href="#">
-		  <table style="width:100%">
+		  <table>
 		    <tr>
 		      <td><a target="_blank" href="smfe-iiith.vlabs.ac.in"> Soil Mechanics Lab  </a></td>
 		      <td><a target="_blank" href="http://iiith.vlab.co.in/?sub=18&brch=42">Structural dynamics</a></td>
@@ -376,27 +395,27 @@
       <div class="test-overly"></div>
       <div class="container">
         <div class="row">
-          <article class="col">
-            <div class="spacer"></div>
+          <article class="col oneline">
+            <div class="circle-in"></div>
             <a target="_blank" href="https://plus.google.com/communities/104131148292250423165">
-              <div class="circle"><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/community/teacher.png"><h4 style="color:#fff;
+              <div><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/community/teacher.png"><h4 style="color:#fff;
               text-align:center; padding-top:
-              20px;">Teachers</h4> </div>
+              100px;">Teachers</h4> </div>
             </a>
           </article>
-          <article class="col">
-            <div class="spacer"></div>
+          <article class="col oneline">
+            <div class="circle-in"></div>
             <a target="_blank" href="https://groups.google.com/a/vlabs.ac.in/forum/#!forum/users">
-              <div class="circle"><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/community/student.png"><h4 style="color:#fff;
+              <div><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/community/student.png"><h4 style="color:#fff;
               text-align:center; padding-top:
-              20px;">Students</h4> </div>
+              100px;">Students</h4> </div>
 	    </a>
           </article>
-          <article class="col">
-            <div class="spacer"></div>
+          <article class="col oneline">
+            <div class="circle-in"></div>
             <a target="_blank" href="https://groups.google.com/a/vlabs.ac.in/forum/#!forum/engineers">
-              <div class="circle"><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/community/developer.png"><h4 style="color:#fff;text-align:center;
-              padding-top:20px;">Developer</h4> </div>
+              <div ><img src="http://files.vlabs.ac.in/iiith-landing-pages/img/community/developer.png"><h4 style="color:#fff;text-align:center;
+              padding-top:100px;">Developer</h4> </div>
             </a>
           </article>
         </div>
@@ -433,7 +452,7 @@
                       <div class="single-services thumbnail">
                         <a class="services-icon" target="_blank" href="workshops.html">
                           <img src="http://files.vlabs.ac.in/iiith-landing-pages/img/services/workshops.jpg">
-                          <h4>Workshops</h4>
+                          <div class="col-md-12"><h4>Workshops</h4></div>
 			</a>
                       </div>
                     </div>
@@ -667,6 +686,7 @@
 	<!-- JavaScript Libraries -->
 	<script href="http://files.vlabs.ac.in/iiith-landing-pages/lib/bootstrap/js/bootstrap.min.js"></script>
 	<script href="http://files.vlabs.ac.in/iiith-landing-pages/lib/bootstrap/js/bootstrap.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 	<script src="http://files.vlabs.ac.in/iiith-landing-pages/lib/jquery/jquery.min.js"></script>
 	<script src="http://files.vlabs.ac.in/iiith-landing-pages/lib/owlcarousel/owl.carousel.min.js"></script>
 	<script src="http://files.vlabs.ac.in/iiith-landing-pages/lib/venobox/venobox.min.js"></script>
