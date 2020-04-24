@@ -37,11 +37,11 @@
   /*----------------------------
    wow js active
   ------------------------------ */
-  new WOW().init();
+ /* new WOW().init();
 
   $(".navbar-collapse a").on('click', function() {
     $(".navbar-collapse.collapse").removeClass('in');
-  });
+  });*/
 
   //---------------------------------------------
   //Nivo slider
