@@ -1392,7 +1392,7 @@ margin-top: -124px;
    line-height:2.2;
    
 }
-.accordion ul li:nth-child(1) {
+/*.accordion ul li:nth-child(1) {
 
   background-image: url("http://files.vlabs.ac.in/iiith-landing-pages/img/disciplines/computer-science.jpg");
 }
@@ -1414,7 +1414,7 @@ margin-top: -124px;
 }
 .accordion ul li:nth-child(6) {
  /* background-image: url("http://michael-ferry.com/assets/accordion6.jpg");*/
-}
+/*}*/
 .accordion ul:hover li {
   width: 8%;
 }
