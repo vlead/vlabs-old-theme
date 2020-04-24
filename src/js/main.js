@@ -72,8 +72,8 @@
   /*---------------------
     Venobox
   --------------------- */
-  var veno_box = $('.venobox');
-  veno_box.venobox();
+ /* var veno_box = $('.venobox');
+  veno_box.venobox();*/
 
   /*----------------------------
   Page Scroll
@@ -106,10 +106,10 @@
   /*----------------------------
    Parallax
   ------------------------------ */
-  var well_lax = $('.wellcome-area');
+  /*var well_lax = $('.wellcome-area');
   well_lax.parallax("50%", 0.4);
   var well_text = $('.wellcome-text');
-  well_text.parallax("50%", 0.6);
+  well_text.parallax("50%", 0.6);*/
 
   /*--------------------------
    collapse
@@ -123,7 +123,7 @@
   /*---------------------
    Testimonial carousel
   ---------------------*/
-  var test_carousel = $('.testimonial-carousel');
+ /* var test_carousel = $('.testimonial-carousel');
   test_carousel.owlCarousel({
     loop: true,
     nav: false,
@@ -140,12 +140,12 @@
         items: 1
       }
     }
-  });
+  });*/
   /*----------------------------
    isotope active
   ------------------------------ */
   // portfolio start
-  $(window).on("load", function() {
+/*  $(window).on("load", function() {
     var $container = $('.awesome-project-content');
     $container.isotope({
       filter: '*',
@@ -172,13 +172,13 @@
       return false;
     });
 
-  });
+  });*/
   //portfolio end
 
   /*---------------------
    Circular Bars - Knob
 --------------------- */
-  if (typeof($.fn.knob) != 'undefined') {
+ /* if (typeof($.fn.knob) != 'undefined') {
     var knob_tex = $('.knob');
     knob_tex.each(function() {
       var $this = $(this),
@@ -207,12 +207,12 @@
         accY: -150
       });
     });
-  }
+  }*/
 
   /*---------------------
      Google Maps
   --------------------- */
-  var get_latitude = $('#google-map').data('latitude');
+/*  var get_latitude = $('#google-map').data('latitude');
   var get_longitude = $('#google-map').data('longitude');
 
   function initialize_google_map() {
@@ -227,7 +227,7 @@
       position: myLatlng,
       map: map
     });
-  }
+  }*/
 /*  google.maps.event.addDomListener(window, 'load', initialize_google_map);*/
 
 })(jQuery);

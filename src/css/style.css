@@ -205,7 +205,8 @@ div#preloader {
   font-size: 40px;
   /*font-weight: 600;*/
   margin-bottom: 59px;
-  margin-top:42px;
+  /*margin-top:42px;*/
+  margin-top:93px;
   position: relative;
   text-transform: capitalize;
 }
